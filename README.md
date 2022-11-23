@@ -1,10 +1,10 @@
 # Kubud
 
-An app that generates recipes based on the ingredients you have in your cupboard.
+### An app that generates recipes based on the ingredients you have in your cupboard.
 
 Core Tech:
 
-- TypeScript
+- JavaScript / TypeScript
 - NextJS
 - tRPC
 - Prisma
