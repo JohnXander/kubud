@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { procedure, router } from '../trpc';
+import { prisma } from '../utils/prisma';
 
 export const appRouter = router({
   hello: procedure
@@ -13,6 +14,22 @@ export const appRouter = router({
         greeting: `Hi ${input.text}`,
       };
     }),
+  
+  createUser: procedure
+    .input(
+      z.object({
+        username: z.string()
+      }),
+    )
+    .mutation(async ({ input }) => {
+      const newUser = await prisma.user.create({
+        data: {
+          ...input
+        }
+      });
+
+      return {success: true, vote: newUser};
+    })
 });
 
 export type AppRouter = typeof appRouter;
