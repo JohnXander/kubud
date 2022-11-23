@@ -3,18 +3,6 @@ import { procedure, router } from '../trpc';
 import { prisma } from '../utils/prisma';
 
 export const appRouter = router({
-  hello: procedure
-    .input(
-      z.object({
-        text: z.string(),
-      }),
-    )
-    .query(({ input }) => {
-      return {
-        greeting: `Hi ${input.text}`,
-      };
-    }),
-  
   createUser: procedure
     .input(
       z.object({
