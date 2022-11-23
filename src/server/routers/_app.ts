@@ -6,7 +6,9 @@ export const appRouter = router({
   createUser: procedure
     .input(
       z.object({
-        username: z.string()
+        username: z.string(),
+        password: z.string(),
+        img: z.string()
       }),
     )
     .mutation(async ({ input }) => {
