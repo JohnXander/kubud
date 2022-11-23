@@ -7,7 +7,6 @@ export const appRouter = router({
     .input(
       z.object({
         username: z.string(),
-        password: z.string(),
         img: z.string()
       }),
     )

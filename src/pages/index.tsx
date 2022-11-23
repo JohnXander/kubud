@@ -5,8 +5,7 @@ export default function IndexPage() {
 
   const createNewUser = () => {
     createUserMutation.mutate({
-      username: 'Test 3',
-      password: 'password123',
+      username: 'Test 4',
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKr5wT7rfkjkGvNeqgXjBmarC5ZNoZs-H2uMpML8O7Q4F9W-IlUQibBT6IPqyvX45NOgw&usqp=CAU'
     })
   }
