@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import 'tailwindcss/tailwind.css';
 import type { AppType } from 'next/app';
 import { trpc } from '../utils/trpc';
 
