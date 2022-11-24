@@ -49,9 +49,6 @@ CREATE TABLE "Meal" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Cupboard_userId_key" ON "Cupboard"("userId");
 
 -- CreateIndex

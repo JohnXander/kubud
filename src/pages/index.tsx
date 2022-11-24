@@ -5,7 +5,7 @@ export default function IndexPage() {
 
   const createNewUser = () => {
     createUserMutation.mutate({
-      username: 'This is a test too'
+      username: 'Test 6'
     })
   }
   
