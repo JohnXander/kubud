@@ -17,6 +17,6 @@ model User {
 model Meal {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  name      Int
-  img       Int
+  name      String
+  img       String
 }

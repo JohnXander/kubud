@@ -39,18 +39,18 @@ export const appRouter = router({
   createMeal: procedure
     .input(
       z.object({
-        name: z.number(),
-        img: z.number()
+        name: z.string(),
+        img: z.string()
       }),
     )
     .mutation(async ({ input }) => {
-      const voteInDb = await prisma.meal.create({
+      const createdMeal = await prisma.meal.create({
         data: {
           ...input
         }
       });
 
-      return {success: true, vote: voteInDb};
+      return {success: true, newMeal: createdMeal};
     })
 });
 

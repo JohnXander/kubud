@@ -11,8 +11,8 @@ CREATE TABLE "User" (
 CREATE TABLE "Meal" (
     "id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "name" INTEGER NOT NULL,
-    "img" INTEGER NOT NULL,
+    "name" TEXT NOT NULL,
+    "img" TEXT NOT NULL,
 
     CONSTRAINT "Meal_pkey" PRIMARY KEY ("id")
 );
