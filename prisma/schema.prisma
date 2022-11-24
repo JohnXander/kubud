@@ -12,46 +12,46 @@ model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
-  username    String
-  cupboard    Cupboard?
-  suggestions Suggestions?
+  username String
+  // cupboard    Cupboard?
+  // suggestions Suggestions?
 }
 
-model Cupboard {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+// model Cupboard {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
 
-  user        User         @relation(fields: [userId], references: [id])
-  userId      Int          @unique
-  ingredients Ingredient[]
-}
+//   user        User         @relation(fields: [userId], references: [id])
+//   userId      Int          @unique
+//   ingredients Ingredient[]
+// }
 
-model Suggestions {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+// model Suggestions {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
 
-  user   User   @relation(fields: [userId], references: [id])
-  userId Int    @unique
-  meals  Meal[]
-}
+//   user   User   @relation(fields: [userId], references: [id])
+//   userId Int    @unique
+//   meals  Meal[]
+// }
 
-model Ingredient {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+// model Ingredient {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
 
-  name       String
-  quantity   Int
-  Cupboard   Cupboard? @relation(fields: [cupboardId], references: [id])
-  cupboardId Int?
-}
+//   name       String
+//   quantity   Int
+//   Cupboard   Cupboard? @relation(fields: [cupboardId], references: [id])
+//   cupboardId Int?
+// }
 
-model Meal {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+// model Meal {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
 
-  name          String
-  img           String
-  ingredients   String[]
-  Suggestions   Suggestions? @relation(fields: [suggestionsId], references: [id])
-  suggestionsId Int?
-}
+//   name          String
+//   img           String
+//   ingredients   String[]
+//   Suggestions   Suggestions? @relation(fields: [suggestionsId], references: [id])
+//   suggestionsId Int?
+// }
