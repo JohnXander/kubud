@@ -9,7 +9,7 @@ export default function IndexPage() {
   }
 
   const createNewTest = () => {
-    createTestMutation.mutate({testOne: 'test1', testTwo: 'test2'})
+    createTestMutation.mutate({testOne: 'test5', testTwo: 'test6'})
   }
   
   if (!createUserMutation) {
