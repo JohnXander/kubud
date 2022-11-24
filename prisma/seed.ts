@@ -4,8 +4,8 @@ const prisma = new PrismaClient()
 async function main() {
   await prisma.user.createMany({
     data: [
-      { username: 'Hello' },
-      { username: 'World' }
+      { username: 'Hello', password: 'helloPwd' },
+      { username: 'World', password: 'worldPwd' }
     ]
   })
 }
