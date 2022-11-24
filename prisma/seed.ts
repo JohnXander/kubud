@@ -2,11 +2,10 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-  await prisma.user.createMany({
-    data: [
-      { username: 'Hello', password: 'helloPwd' },
-      { username: 'World', password: 'worldPwd' }
-    ]
+  await prisma.user.create({
+    data: {
+      username: 'Hello', password: 'helloPwd'
+    }
   })
 }
 
