@@ -39,8 +39,8 @@ export const appRouter = router({
   createMeal: procedure
     .input(
       z.object({
-        name: z.string(),
-        img: z.string()
+        name: z.number(),
+        img: z.number()
       }),
     )
     .mutation(async ({ input }) => {

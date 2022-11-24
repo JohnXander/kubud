@@ -15,7 +15,7 @@ export default function IndexPage() {
   const voteMutation = trpc.createMeal.useMutation();
 
   const voteForRoundest = () => {
-      voteMutation.mutate({ name: 'Pizza', img: 'PizzaImage' });
+      voteMutation.mutate({ name: 1, img: 2 });
   }
   
   if (!voteForRoundest) {
