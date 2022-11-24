@@ -13,3 +13,10 @@ model User {
   createdAt DateTime @default(now())
   username  String   @unique
 }
+
+model Test {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  testOne   String   @unique
+  testTwo   String
+}

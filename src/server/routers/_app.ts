@@ -17,6 +17,23 @@ export const appRouter = router({
       });
 
       return {success: true, vote: newUser};
+    }),
+  
+  createTest: procedure
+    .input(
+      z.object({
+        testOne: z.string(),
+        testTwo: z.string()
+      }),
+    )
+    .mutation(async ({ input }) => {
+      const newTest = await prisma.test.create({
+        data: {
+          ...input
+        }
+      });
+
+      return {success: true, vote: newTest};
     })
 });
 

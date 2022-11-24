@@ -7,6 +7,13 @@ async function main() {
       username: 'Nobody'
     }
   })
+
+  await prisma.test.create({
+    data: {
+      testOne: 'Nothing',
+      testTwo: 'Also nothing',
+    }
+  })
 }
 
 main()
