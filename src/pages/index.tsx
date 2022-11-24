@@ -4,7 +4,7 @@ export default function IndexPage() {
   const createUserMutation = trpc.createUser.useMutation();
 
   const createNewUser = () => {
-    createUserMutation.mutate({username: 'blox', password: 'bloxPwd'})
+    createUserMutation.mutate({username: 'xander', password: 'xanderPwd'})
   }
   
   if (!createUserMutation) {

@@ -1,10 +1,20 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
+type Employee = {
+  [key: string]: string;
+};
+
+const emp: Employee = {
+  username: 'Alice',
+  password: 'accounting'
+};
+
 async function main() {
   await prisma.user.create({
     data: {
-      username: 'Hello', password: 'helloPwd'
+      username: emp.username,
+      password: emp.password
     }
   })
 }
