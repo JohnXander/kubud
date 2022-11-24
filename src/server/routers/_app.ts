@@ -10,13 +10,12 @@ export const appRouter = router({
       }),
     )
     .mutation(async ({ input }) => {
-      const newUser = await prisma.user.create({
+      const createdUser = await prisma.user.create({
         data: {
           ...input
         }
       });
-
-      return {success: true, newUser};
+      return {success: true, newUser: createdUser};
     })
 });
 

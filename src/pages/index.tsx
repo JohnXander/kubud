@@ -5,7 +5,7 @@ export default function IndexPage() {
 
   const createNewUser = () => {
     createUserMutation.mutate({
-      username: 'Test 7'
+      username: 'Test 9'
     })
   }
   
@@ -17,6 +17,7 @@ export default function IndexPage() {
       >
         Create New User
       </button>
+      {createUserMutation.error && <p>Something went wrong! {createUserMutation.error.message}</p>}
     </div>
   );
 }
