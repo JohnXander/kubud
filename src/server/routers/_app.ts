@@ -6,8 +6,7 @@ export const appRouter = router({
   createUser: procedure
     .input(
       z.object({
-        username: z.string(),
-        img: z.string()
+        username: z.string()
       }),
     )
     .mutation(async ({ input }) => {
@@ -17,7 +16,7 @@ export const appRouter = router({
         }
       });
 
-      return {success: true, vote: newUser};
+      return {success: true, newUser};
     })
 });
 

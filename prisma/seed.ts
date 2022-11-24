@@ -2,7 +2,12 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-    // seed data removed
+  await prisma.user.createMany({
+    data: [
+      { username: 'Hello' },
+      { username: 'World' }
+    ]
+  })
 }
 
 main()

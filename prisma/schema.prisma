@@ -13,7 +13,6 @@ model User {
   createdAt DateTime @default(now())
 
   username    String       @unique
-  img         String
   cupboard    Cupboard?
   suggestions Suggestions?
 }
