@@ -8,12 +8,14 @@ async function main() {
     }
   })
 
+  /* eslint-disable */
   await prisma.test.create({
     data: {
       testOne: 'Nothing',
       testTwo: 'Also nothing',
     }
   })
+  /* eslint-enable */
 }
 
 main()
