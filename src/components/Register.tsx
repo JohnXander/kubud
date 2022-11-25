@@ -2,7 +2,7 @@ import { useState } from "react";
 import { trpc } from "../utils/trpc"
 
 export default function Register() {
-    const [user, setUser] = useState({ username: '', password: '' });
+    const [user, setUser] = useState({ username: '', email: '', password: '' });
 
     const userMutation = trpc.createUser.useMutation();
 
@@ -17,14 +17,14 @@ export default function Register() {
     }
 
     const createNewUser = () => {
-        const { username, password } = user;
-        userMutation.mutate({ username, password });
+        const { username, email, password } = user;
+        userMutation.mutate({ username, email, password });
     }
   
-    if (!createNewUser) <div>Loading...</div>;
+    if (!createNewUser) <div className="text-3xl">Loading...</div>;
     
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-y-2.5">
             <h1 className="text-center text-3xl pb-4">Sign Up</h1>
             <label>Username</label>
             <input
@@ -32,6 +32,14 @@ export default function Register() {
                 type="text"
                 onChange={handleChange}
                 name='username'
+                required
+            />
+            <label>Email</label>
+            <input
+                className="bg-gray-800 border rounded p-2.5"
+                type="email"
+                onChange={handleChange}
+                name='email'
                 required
             />
             <label>Password</label>

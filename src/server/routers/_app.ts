@@ -4,7 +4,7 @@ import { prisma } from '../utils/prisma';
 
 export const appRouter = router({
   createUser: procedure
-    .input(z.object({ username: z.string(), password: z.string() }),)
+    .input(z.object({ username: z.string(), email: z.string(), password: z.string() }),)
     .mutation(async ({ input }) => {
       const createdMeal = await prisma.user.create({ data: { ...input } });
       return {success: true, newMeal: createdMeal};
