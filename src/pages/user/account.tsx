@@ -11,6 +11,8 @@ export default function Account() {
 
     const dateParts = String(new Date(String(loggedInUser?.createdAt))).split(' ')
 
+    if (!loggedInUser) <div className="text-3xl">Loading...</div>;
+
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
             <h1 className="text-3xl pb-2">Account Info</h1>
