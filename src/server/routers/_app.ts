@@ -17,6 +17,13 @@ export const appRouter = router({
       return {success: true, newUser: foundUser};
     }),
   
+  deleteUser: procedure
+    .input(z.object({ username: z.string() }),)
+    .mutation(async ({ input }) => {
+      const deletedUser = await prisma.user.delete({ where: { ...input } });
+      return {success: true, newUser: deletedUser};
+    }),
+  
 });
 
 export type AppRouter = typeof appRouter;
