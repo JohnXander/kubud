@@ -60,8 +60,6 @@ export default function Register() {
                     >
                         Create New User
                 </button>
-
-            <button onClick={handleNavigate}>Send data</button>
             </div>
         </div>
     )

@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import { useState } from "react";
 import { trpc } from "../../utils/trpc"
 
 export default function Account() {

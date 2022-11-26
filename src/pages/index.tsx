@@ -1,8 +1,18 @@
+import Router from "next/router";
 
 export default function IndexPage() {
+  const handleNavigate = () => {
+    Router.push({ pathname: "/login/register" });
+  }
+  
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800'>
-      <h1 className="text-3xl">Landing</h1>
+      <button
+          className='text-center text-white border rounded p-2.5 hover:bg-white hover:text-gray-800'
+          onClick={handleNavigate}
+          >
+            Register
+      </button>
     </div>
   );
 }
