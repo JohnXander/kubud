@@ -19,7 +19,7 @@ export default function Register() {
         handleNavigate(username)
     }
 
-    const handleNavigate = (user: string) => {
+    const handleNavigate = (user: any) => {
         Router.push({ pathname: "/user/account", query: { user } });
     }
   
