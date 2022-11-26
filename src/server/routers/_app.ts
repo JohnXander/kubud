@@ -6,16 +6,16 @@ export const appRouter = router({
   createUser: procedure
     .input(z.object({ username: z.string(), email: z.string(), password: z.string() }),)
     .mutation(async ({ input }) => {
-      const createdMeal = await prisma.user.create({ data: { ...input } });
-      return {success: true, newMeal: createdMeal};
+      const createdUser = await prisma.user.create({ data: { ...input } });
+      return {success: true, newUser: createdUser};
     }),
   
-  createMeal: procedure
-    .input(z.object({ name: z.string(), img: z.string() }),)
-    .mutation(async ({ input }) => {
-      const createdMeal = await prisma.meal.create({ data: { ...input } });
-      return {success: true, newMeal: createdMeal};
-    })
+  getUser: procedure
+    .input(z.object({ username: z.string() }),)
+    .query(async ({ input }) => {
+      const foundUser = await prisma.user.findMany({ where: { ...input } });
+      return {success: true, newUser: foundUser};
+    }),
   
 });
 
