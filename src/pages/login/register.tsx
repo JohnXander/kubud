@@ -22,9 +22,9 @@ export default function Register() {
     const handleNavigate = (user: any) => {
         Router.push({ pathname: "/user/cupboard", query: { user } });
     }
-  
+
     if (!createNewUser) <div className="text-3xl">Loading...</div>;
-    
+
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800'>
             <div className="flex flex-col gap-y-2.5">
