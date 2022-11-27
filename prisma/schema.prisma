@@ -9,16 +9,18 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  username  String   @unique
-  email     String   @unique
-  password  String
+  id          Int          @id @default(autoincrement())
+  createdAt   DateTime     @default(now())
+  username    String       @unique
+  email       String       @unique
+  password    String
+  ingredients Ingredient[]
 }
 
-model Meal {
-  id        String   @id @default(cuid())
+model Ingredient {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   name      String
-  img       String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
 }

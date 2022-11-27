@@ -10,6 +10,13 @@ async function main() {
     }
   })
 
+  await prisma.ingredient.create({
+    data: {
+      name: 'sugar',
+      userId: 1
+    }
+  })
+
 }
 
 main()

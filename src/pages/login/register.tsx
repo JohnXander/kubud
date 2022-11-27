@@ -20,7 +20,7 @@ export default function Register() {
     }
 
     const handleNavigate = (user: any) => {
-        Router.push({ pathname: "/user/account", query: { user } });
+        Router.push({ pathname: "/user/cupboard", query: { user } });
     }
   
     if (!createNewUser) <div className="text-3xl">Loading...</div>;
