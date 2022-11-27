@@ -4,13 +4,14 @@
 
 Core Tech:
 
-- JavaScript / TypeScript
+- TypeScript / JavaScript
 - NextJS
 - tRPC
 - Prisma
 - TailwindCSS
 - Vercel
 
-Project Board: https://github.com/users/JohnXander/projects/1
+Links:
 
-Deployed: https://kubud-johnxander.vercel.app
+- Project Board: https://github.com/users/JohnXander/projects/1
+- Deployed: https://kubud-johnxander.vercel.app
