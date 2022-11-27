@@ -10,6 +10,13 @@ export const appRouter = router({
       return {success: true, newUser: createdUser};
     }),
   
+  createIngredient: procedure
+    .input(z.object({ name: z.string(), userId: z.number() }))
+    .mutation(async ({ input }) => {
+      const createdIngredient = await prisma.ingredient.create({ data: { ...input } });
+      return {success: true, newIngredient: createdIngredient};
+    }),
+  
   getUser: procedure
     .input(z.object({ username: z.string() }),)
     .query(async ({ input }) => {

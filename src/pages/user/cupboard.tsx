@@ -12,17 +12,23 @@ export default function Cupboard() {
 
     const [ingredient, setIngredient] = useState('');
     const handleChange = (e: any) => setIngredient(e.target.value);
+    const ingredientMutation = trpc.createIngredient.useMutation();
 
     const ingredientQuery = trpc.getIngredients.useQuery({ userId: Number(loggedInUser?.id) });
     const cupboardIngredients = ingredientQuery.data?.ingredients
 
     const addIngredient = () => {
-        console.log('first', ingredientQuery.data?.ingredients)
+        ingredientMutation.mutate({ name: ingredient, userId: Number(loggedInUser?.id)});
     }
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
             <h1 className="text-3xl">My Cupboard</h1>
+            {cupboardIngredients?.map(ing => {
+                return (
+                    <p key={ing.id}>{ing.name}</p>
+                )
+            })}
             <div className="flex gap-x-2 items-center mt-4">
                 <input
                     className="bg-gray-800 border rounded p-2.5"
