@@ -31,6 +31,12 @@ export const appRouter = router({
       return {success: true, ingredients: foundIngredients};
     }),
   
+  getBackFillIngredients: procedure
+    .query(async () => {
+      const foundBackFillIngredients = await prisma.backFillIngredient.findMany();
+      return {success: true, ingredients: foundBackFillIngredients};
+    }),
+  
   deleteUser: procedure
     .input(z.object({ username: z.string() }),)
     .mutation(async ({ input }) => {

@@ -10,13 +10,14 @@ export default function Cupboard() {
 
     const userQuery = trpc.getUser.useQuery({ username: String(props.user) });
     const loggedInUser = userQuery?.data?.newUser[0];
-
-    const [ingredient, setIngredient] = useState('');
-    const handleChange = (e: any) => setIngredient(e.target.value);
     const ingredientMutation = trpc.createIngredient.useMutation();
+
+    const backFillIngredientQuery = trpc.getBackFillIngredients.useQuery();
+    const dbIngredients = backFillIngredientQuery.data?.ingredients;
+    const dbIngredientNames = dbIngredients?.map(ing => ing.name).sort();
     
-    const addIngredient = () => {
-        ingredientMutation.mutate({ name: ingredient, userId: Number(loggedInUser?.id) });
+    const addIngredient = (ing: string) => {
+        ingredientMutation.mutate({ name: ing, userId: Number(loggedInUser?.id) });
         Router.reload();
     }
 
@@ -32,22 +33,20 @@ export default function Cupboard() {
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
-            <h1 className="text-3xl mb-3">My Cupboard</h1>
-            <div className="flex gap-x-2 items-center">
-                <input
-                    className="bg-gray-800 border rounded p-2.5"
-                    type="text"
-                    onChange={handleChange}
-                    name='username'
-                    placeholder="Add ingredient..."
-                    required
-                />
-                <button
-                    className='text-center text-green-500 border border-green-500 rounded p-2.5 hover:bg-green-500 hover:text-white'
-                    onClick={addIngredient}
-                    >
-                        +
-                </button>
+            <h1 className="text-3xl mb-4">My Cupboard</h1>
+            <div className="flex flex-wrap border gap-2 justify-center overflow-y-auto h-64 p-4">
+                {dbIngredientNames?.map((ing, idx) => {
+                    return (
+                        <div className="flex text-xs border rounded p-1" key={idx}>
+                            <button
+                                className="capitalize"
+                                onClick={() => addIngredient(ing)}
+                            >
+                                {ing}
+                            </button>
+                        </div>
+                    )
+                })}
             </div>
             <div className="flex flex-wrap justify-center">
                 {cupboardIngredients?.map(ing => {
