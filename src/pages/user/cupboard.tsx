@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { trpc } from "../../utils/trpc";
+import Router from "next/router";
 
 export default function Cupboard() {
     const router = useRouter();
@@ -13,13 +14,14 @@ export default function Cupboard() {
     const [ingredient, setIngredient] = useState('');
     const handleChange = (e: any) => setIngredient(e.target.value);
     const ingredientMutation = trpc.createIngredient.useMutation();
+    
+    const addIngredient = () => {
+        ingredientMutation.mutate({ name: ingredient, userId: Number(loggedInUser?.id) });
+        Router.reload();
+    }
 
     const ingredientQuery = trpc.getIngredients.useQuery({ userId: Number(loggedInUser?.id) });
     const cupboardIngredients = ingredientQuery.data?.ingredients;
-
-    const addIngredient = () => {
-        ingredientMutation.mutate({ name: ingredient, userId: Number(loggedInUser?.id)});
-    }
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
