@@ -38,6 +38,13 @@ export const appRouter = router({
       return {success: true, newUser: deletedUser};
     }),
   
+  deleteIngredient: procedure
+    .input(z.object({ name: z.string() }),)
+    .mutation(async ({ input }) => {
+      const deletedIngredient = await prisma.ingredient.deleteMany({ where: { ...input } });
+      return {success: true, newUser: deletedIngredient};
+    }),
+  
 });
 
 export type AppRouter = typeof appRouter;
