@@ -32,7 +32,7 @@ export default function Cupboard() {
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
-            <h1 className="text-3xl mb-2">My Cupboard</h1>
+            <h1 className="text-3xl mb-3">My Cupboard</h1>
             <div className="flex gap-x-2 items-center">
                 <input
                     className="bg-gray-800 border rounded p-2.5"

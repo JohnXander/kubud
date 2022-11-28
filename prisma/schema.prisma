@@ -24,3 +24,17 @@ model Ingredient {
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
 }
+
+model BackFillIngredient {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  quantity  Int
+}
+
+model BackFillMeal {
+  id          Int      @id @default(autoincrement())
+  name        String
+  img         String
+  ingredients String[]
+}
