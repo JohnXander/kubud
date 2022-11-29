@@ -1,7 +1,9 @@
 import { trpc } from "../../utils/trpc";
 import Router from "next/router";
+import { useState } from "react";
 
 export default function IngredientList({ loggedInUser }: any) {
+    const [filteredList, setFilteredList] = useState<string[]>()
     const ingredientMutation = trpc.createIngredient.useMutation();
     const backFillIngredientQuery = trpc.getBackFillIngredients.useQuery();
     const dbIngredientsArray = backFillIngredientQuery.data?.ingredients;
@@ -12,11 +14,30 @@ export default function IngredientList({ loggedInUser }: any) {
         Router.reload();
     }
 
+    const handleChange = (e: any) => {
+        const filteredIngredients = dbIngredientNames?.filter(ing => {
+            if (e.target.value !== '') {
+                return ing.includes(e.target.value)
+            }
+        })
+        setFilteredList(filteredIngredients)
+        console.log('first', e.target.value, filteredList)
+    }
+
     return (
-        <div className="flex flex-wrap border gap-2 justify-center overflow-y-auto h-64 p-4">
-                {dbIngredientNames?.map((ing: string, idx: number) => {
+        <div className="border-bottom flex flex-col items-center p-4 gap-y-4">
+            <input
+                className="bg-gray-800 border rounded p-2.5 w-96"
+                type="text"
+                onChange={handleChange}
+                name='username'
+                placeholder="Search for ingredient..."
+                required
+            />
+            {filteredList && <div className="flex flex-wrap gap-2 justify-center overflow-y-auto h-64">
+                {filteredList?.map((ing: string, idx: number) => {
                     return (
-                        <div className="flex text-xs border rounded p-1" key={idx}>
+                        <div className="flex text-xs border rounded p-1 h-8" key={idx}>
                             <button
                                 className="capitalize"
                                 onClick={() => addIngredient(ing)}
@@ -26,6 +47,8 @@ export default function IngredientList({ loggedInUser }: any) {
                         </div>
                     )
                 })}
-            </div>
+            </div>}
+        </div>
+        
     )
 }

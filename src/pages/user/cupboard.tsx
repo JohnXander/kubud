@@ -24,21 +24,17 @@ export default function Cupboard() {
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
             <h1 className="text-3xl mb-4">My Cupboard</h1>
-            <IngredientList loggedInUser={loggedInUser} />
             <div className="flex flex-wrap justify-center">
                 {cupboardIngredients?.map(ing => {
                     return (
                         <div className="p-4 m-4 border rounded w-48 flex justify-between" key={ing.id}>
-                            <p
-                                className="capitalize"
-                            >
-                                {ing.name}
-                            </p>
+                            <p className="capitalize">{ing.name}</p>
                             <button className="text-red-500" onClick={() => deleteIngredient(ing.name)}>X</button>
                         </div>
                     )
                 })}
             </div>
+            <IngredientList loggedInUser={loggedInUser} />
         </div>
     )
 }
