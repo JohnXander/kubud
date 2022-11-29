@@ -4,7 +4,7 @@
 
 Core Tech:
 
-- TypeScript / JavaScript
+- TypeScript
 - NextJS
 - tRPC
 - Prisma
