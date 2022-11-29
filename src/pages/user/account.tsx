@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
 import Router from "next/router";
+import Header from "../../components/Header";
 
 export default function Account() {
     const router = useRouter();
@@ -24,6 +25,7 @@ export default function Account() {
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
+            <Header loggedInUser={loggedInUser} />
             <h1 className="text-3xl mb-2">Account Info</h1>
             <p>Username: {loggedInUser?.username}</p>
             <p>Joined: {dateParts[1]} {dateParts[3]}</p>

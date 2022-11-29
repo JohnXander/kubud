@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
 import Router from "next/router";
 import IngredientList from "../../components/ingredients/IngredientList";
+import Header from "../../components/Header";
 
 export default function Cupboard() {
     const router = useRouter();
@@ -23,6 +24,7 @@ export default function Cupboard() {
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
+            <Header loggedInUser={loggedInUser} />
             <h1 className="text-3xl mb-4">My Cupboard</h1>
             <div className="flex flex-wrap justify-center">
                 {cupboardIngredients?.map(ing => {

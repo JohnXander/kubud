@@ -21,7 +21,6 @@ export default function IngredientList({ loggedInUser }: any) {
             }
         })
         setFilteredList(filteredIngredients)
-        console.log('first', e.target.value, filteredList)
     }
 
     return (
