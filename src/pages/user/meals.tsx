@@ -19,14 +19,14 @@ export default function Meals() {
     const cupboardIngredients = ingredientQuery.data?.ingredients;
     const cupboardIngredientNames = cupboardIngredients?.map(ing => ing.name);
 
-    const atLeastOneMatchingIngredient = dbMealsArray?.filter(meal => {
-        if (meal.ingredients.some(ing => cupboardIngredientNames?.includes(ing.toLowerCase()))) {
+    const exactMatches = dbMealsArray?.filter(meal => {
+        if (meal.ingredients.every(ing => cupboardIngredientNames?.includes(ing.toLowerCase()))) {
             return meal
         }
     })
 
-    const exactMatches = dbMealsArray?.filter(meal => {
-        if (meal.ingredients.every(ing => cupboardIngredientNames?.includes(ing.toLowerCase()))) {
+    const atLeastOneMatchingIngredient = dbMealsArray?.filter(meal => {
+        if (meal.ingredients.some(ing => cupboardIngredientNames?.includes(ing.toLowerCase()))) {
             return meal
         }
     })
