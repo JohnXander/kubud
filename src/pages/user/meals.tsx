@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
 import Header from "../../components/Header";
+import Router from "next/router";
 
 export default function Meals() {
     const router = useRouter();
@@ -29,6 +30,10 @@ export default function Meals() {
         }
     })
 
+    const handleNavigate = (meal: string) => {
+        Router.push({ pathname: "/user/meal", query: { meal } });
+    }
+
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2 '>
             <Header loggedInUser={loggedInUser} />
@@ -36,7 +41,7 @@ export default function Meals() {
             <div className="flex justify-center border flex-wrap gap-2 overflow-y-auto h-64 p-4 w-full">
                 {exactMatches?.map(meal => {
                     return (
-                        <div key={meal.id} className="border w-32 p-2">
+                        <div key={meal.id} className="border w-32 p-2 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
                             <img src={meal.img} alt={meal.name} />
                             <p className="text-center">{meal.name}</p>
                         </div>
@@ -47,7 +52,7 @@ export default function Meals() {
             <div className="flex justify-center border flex-wrap gap-2 overflow-y-auto h-64 p-4 w-full">
                 {atLeastOneMatchingIngredient?.map(meal => {
                     return (
-                        <div key={meal.id} className="border w-32 p-2">
+                        <div key={meal.id} className="border w-32 p-2 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
                             <img src={meal.img} alt={meal.name} />
                             <p className="text-center">{meal.name}</p>
                         </div>

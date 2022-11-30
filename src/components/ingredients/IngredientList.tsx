@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function IngredientList({ loggedInUser }: any) {
     const [filteredList, setFilteredList] = useState<string[]>()
     const ingredientMutation = trpc.createIngredient.useMutation();
+    
     const backFillIngredientQuery = trpc.getBackFillIngredients.useQuery();
     const dbIngredientsArray = backFillIngredientQuery.data?.ingredients;
     const dbIngredientNames = dbIngredientsArray?.map(ing => ing.name).sort();
