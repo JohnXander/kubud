@@ -1,6 +1,8 @@
 import { trpc } from "../../utils/trpc";
 import Router from "next/router";
 import { useState } from "react";
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function IngredientList({ loggedInUser }: any) {
     const [filteredList, setFilteredList] = useState<string[]>()
@@ -25,19 +27,22 @@ export default function IngredientList({ loggedInUser }: any) {
     }
 
     return (
-        <div className="border-bottom flex flex-col items-center p-4 gap-y-4">
-            <input
-                className="bg-gray-800 border rounded p-2.5 w-96"
-                type="text"
-                onChange={handleChange}
-                name='username'
-                placeholder="Search for ingredient..."
-                required
-            />
+        <div className="w-full flex flex-col justify-center items-center">
+            <div className="flex w-full p-4 items-center justify-center gap-2 border-0 border-b-2 border-gray-600">
+                <FontAwesomeIcon className="text-2xl text-white" icon={faMagnifyingGlass} />
+                <input
+                    className="bg-gray-800 text-white border rounded p-2.5 w-72"
+                    type="text"
+                    onChange={handleChange}
+                    name='username'
+                    placeholder="Search for ingredient..."
+                    required
+                />
+            </div>
             {filteredList && <div className="flex flex-wrap gap-2 justify-center overflow-y-auto h-64">
                 {filteredList?.map((ing: string, idx: number) => {
                     return (
-                        <div className="flex text-xs border rounded p-1 h-8" key={idx}>
+                        <div className="flex text-xs border rounded p-1 h-8 text-white" key={idx}>
                             <button
                                 className="capitalize"
                                 onClick={() => addIngredient(ing)}

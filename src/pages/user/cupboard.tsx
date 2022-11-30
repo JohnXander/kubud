@@ -13,9 +13,9 @@ export default function Cupboard() {
     const loggedInUser = userQuery?.data?.newUser[0];
 
     return (
-        <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
+        <div className='bg-gray-800 flex flex-col items-center'>
             <Header loggedInUser={loggedInUser} />
-            <h1 className="text-3xl mb-4">My Cupboard</h1>
+            <h1 className="text-3xl text-center pb-4 pt-2 border-0 border-b-2 border-gray-600 text-white w-full">Cupboard</h1>
             <CupboardContents loggedInUser={loggedInUser} />
             <IngredientList loggedInUser={loggedInUser} />
         </div>

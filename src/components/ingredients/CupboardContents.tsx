@@ -1,5 +1,7 @@
 import Router from "next/router";
 import { trpc } from "../../utils/trpc";
+import { faX } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function CupboardContents({ loggedInUser }: any) {
     const ingredientQuery = trpc.getIngredients.useQuery({ userId: Number(loggedInUser?.id) });
@@ -12,12 +14,14 @@ export default function CupboardContents({ loggedInUser }: any) {
     }
 
     return (
-        <div className="flex flex-wrap justify-center">
+        <div className="flex justify-center flex-wrap gap-3 py-4 px-2 border-0 border-b-2 border-gray-600 lg:w-9/12">
                 {cupboardIngredients?.map(ing => {
                     return (
-                        <div className="p-4 m-4 border rounded w-48 flex justify-between" key={ing.id}>
-                            <p className="capitalize">{ing.name}</p>
-                            <button className="text-red-500" onClick={() => deleteIngredient(ing.name)}>X</button>
+                        <div className="border rounded w-64 flex items-center p-2 justify-between" key={ing.id}>
+                            <p className="capitalize text-white">{ing.name}</p>
+                            <button className="text-red-500" onClick={() => deleteIngredient(ing.name)}>
+                                <FontAwesomeIcon icon={faX} />
+                            </button>
                         </div>
                     )
                 })}
