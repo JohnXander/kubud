@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
 import Header from "../../components/Header";
-import Image from "next/image";
 
 export default function Meals() {
     const router = useRouter();
@@ -10,8 +9,6 @@ export default function Meals() {
 
     const userQuery = trpc.getUser.useQuery({ username: String(props.user) });
     const loggedInUser = userQuery?.data?.newUser[0];
-
-    // Different component
 
     const backFillMealQuery = trpc.getBackFillMeals.useQuery();
     const dbMealsArray = backFillMealQuery.data?.ingredients;
