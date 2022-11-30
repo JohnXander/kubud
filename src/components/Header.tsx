@@ -1,4 +1,7 @@
 import Router from "next/router";
+import { ReactElement } from 'react'
+import { faBowlRice, faCoffee, faKitchenSet, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Header({ loggedInUser }: any) {
 
@@ -17,9 +20,9 @@ export default function Header({ loggedInUser }: any) {
 
     return (
         <ul className="border w-full flex justify-between px-96 p-4">
-            <li className="cursor-pointer" onClick={() => handleNavigate('meals')}>Meal Suggestions</li>
-            <li className="cursor-pointer" onClick={() => handleNavigate('cupboard')}>Cupboard</li>
-            <li className="cursor-pointer" onClick={() => handleNavigate('account')}>Account</li>
+            <li className="cursor-pointer" onClick={() => handleNavigate('meals')}><FontAwesomeIcon icon={faBowlRice} /></li>
+            <li className="cursor-pointer" onClick={() => handleNavigate('cupboard')}><FontAwesomeIcon icon={faKitchenSet} /></li>
+            <li className="cursor-pointer" onClick={() => handleNavigate('account')}><FontAwesomeIcon icon={faUser} /></li>
         </ul>
     )
 }
