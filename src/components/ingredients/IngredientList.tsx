@@ -20,7 +20,7 @@ export default function IngredientList({ loggedInUser }: any) {
     const handleChange = (e: any) => {
         const filteredIngredients = dbIngredientNames?.filter(ing => {
             if (e.target.value !== '') {
-                return ing.includes(e.target.value)
+                return ing.includes(e.target.value.toLowerCase())
             }
         })
         setFilteredList(filteredIngredients)
