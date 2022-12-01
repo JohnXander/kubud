@@ -14,7 +14,7 @@ export default function CupboardContents({ loggedInUser }: any) {
     }
 
     return (
-        <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto h-64 md:w-9/12">
+        <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
             {cupboardIngredients?.length === 0 && <p className="text-gray-400">There is nothing in your cupboard.</p>}
             {cupboardIngredients?.map(ing => {
                 return (

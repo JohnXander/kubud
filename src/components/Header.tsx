@@ -26,13 +26,13 @@ export default function Header({ loggedInUser }: any) {
                     <FontAwesomeIcon icon={faBowlRice} />
             </li>
             <li 
-                className="cursor-pointer text-3xl text-blue-400" 
+                className="cursor-pointer text-3xl text-green-400" 
                 onClick={() => handleNavigate('cupboard')}
                 >
                     <FontAwesomeIcon icon={faKitchenSet} />
             </li>
             <li 
-                className="cursor-pointer text-3xl text-purple-400" 
+                className="cursor-pointer text-3xl text-blue-400" 
                 onClick={() => handleNavigate('account')}
                 >
                     <FontAwesomeIcon icon={faUser} />

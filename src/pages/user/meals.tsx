@@ -35,26 +35,34 @@ export default function Meals() {
     }
 
     return (
-        <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2 '>
+        <div className='bg-gray-800 h-screen flex flex-col items-center text-white'>
             <Header loggedInUser={loggedInUser} />
-            <h1 className="text-2xl">Exact Matches</h1>
-            <div className="flex justify-center border flex-wrap gap-2 overflow-y-auto h-64 p-4 w-full">
+            <h1 className="text-3xl text-center pb-4 pt-2 border-0 border-b-2 border-gray-600 text-white w-full">
+                Exact Matches
+            </h1>
+            <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
                 {exactMatches?.map(meal => {
                     return (
-                        <div key={meal.id} className="border w-32 p-2 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
-                            <img src={meal.img} alt={meal.name} />
-                            <p className="text-center">{meal.name}</p>
+                        <div
+                            key={meal.id}
+                            className="border-2 border-green-400 rounded w-32 h-44 cursor-pointer"
+                            onClick={() => handleNavigate(meal.name)}
+                        >
+                            <img className="w-full" src={meal.img} alt={meal.name} />
+                            <p className="text-center truncate p-2">{meal.name}</p>
                         </div>
                     )
                 })}
             </div>
-            <h1 className="text-2xl">At Least One Matching Ingredient</h1>
-            <div className="flex justify-center border flex-wrap gap-2 overflow-y-auto h-64 p-4 w-full">
+            <h1 className="text-3xl text-center pb-4 pt-2 border-0 border-b-2 border-gray-600 text-white w-full">
+                At Least One <br/> Matching Ingredient
+            </h1>
+            <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
                 {atLeastOneMatchingIngredient?.map(meal => {
                     return (
-                        <div key={meal.id} className="border w-32 p-2 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
-                            <img src={meal.img} alt={meal.name} />
-                            <p className="text-center">{meal.name}</p>
+                        <div key={meal.id} className="border-2 border-yellow-400 rounded w-32 h-44 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
+                            <img className="w-full" src={meal.img} alt={meal.name} />
+                            <p className="text-center truncate p-2">{meal.name}</p>
                         </div>
                     )
                 })}
