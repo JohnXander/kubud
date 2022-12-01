@@ -20,13 +20,13 @@ export default function Header({ loggedInUser }: any) {
     return (
         <ul className="border-0 border-b-2 border-gray-600 w-full flex justify-around py-4">
             <li 
-                className="cursor-pointer text-3xl text-yellow-400" 
+                className="cursor-pointer text-3xl text-green-400" 
                 onClick={() => handleNavigate('meals')}
                 >
                     <FontAwesomeIcon icon={faBowlRice} />
             </li>
             <li 
-                className="cursor-pointer text-3xl text-green-400" 
+                className="cursor-pointer text-3xl text-yellow-400" 
                 onClick={() => handleNavigate('cupboard')}
                 >
                     <FontAwesomeIcon icon={faKitchenSet} />

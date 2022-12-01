@@ -41,6 +41,7 @@ export default function Meals() {
                 Exact Matches
             </h1>
             <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
+                {exactMatches?.length === 0 && <p className="text-gray-400">There are no matches.</p>}
                 {exactMatches?.map(meal => {
                     return (
                         <div
@@ -49,7 +50,7 @@ export default function Meals() {
                             onClick={() => handleNavigate(meal.name)}
                         >
                             <img className="w-full" src={meal.img} alt={meal.name} />
-                            <p className="text-center truncate p-2">{meal.name}</p>
+                            <p className="text-center truncate p-2.5">{meal.name}</p>
                         </div>
                     )
                 })}
@@ -58,11 +59,12 @@ export default function Meals() {
                 At Least One <br/> Matching Ingredient
             </h1>
             <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
+                {atLeastOneMatchingIngredient?.length === 0 && <p className="text-gray-400">There are no matches.</p>}
                 {atLeastOneMatchingIngredient?.map(meal => {
                     return (
-                        <div key={meal.id} className="border-2 border-yellow-400 rounded w-32 h-44 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
+                        <div key={meal.id} className="border-2 border-green-800 rounded w-32 h-44 cursor-pointer" onClick={() => handleNavigate(meal.name)}>
                             <img className="w-full" src={meal.img} alt={meal.name} />
-                            <p className="text-center truncate p-2">{meal.name}</p>
+                            <p className="text-center truncate p-2.5">{meal.name}</p>
                         </div>
                     )
                 })}

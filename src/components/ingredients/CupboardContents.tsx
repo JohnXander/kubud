@@ -18,7 +18,7 @@ export default function CupboardContents({ loggedInUser }: any) {
             {cupboardIngredients?.length === 0 && <p className="text-gray-400">There is nothing in your cupboard.</p>}
             {cupboardIngredients?.map(ing => {
                 return (
-                    <div className="border rounded w-64 h-16 flex items-center p-2 justify-between" key={ing.id}>
+                    <div className="border-2 border-yellow-400 rounded w-64 h-16 flex items-center p-2 justify-between" key={ing.id}>
                         <p className="capitalize text-white">{ing.name}</p>
                         <button className="text-red-500" onClick={() => deleteIngredient(ing.name)}>
                             <FontAwesomeIcon icon={faX} />

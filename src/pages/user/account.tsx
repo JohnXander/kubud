@@ -24,11 +24,19 @@ export default function Account() {
     if (!userQuery) <div className="text-3xl">Loading...</div>;
 
     return (
-        <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800 gap-y-2'>
+        <div className='bg-gray-800 h-screen flex flex-col items-center text-white'>
             <Header loggedInUser={loggedInUser} />
-            <h1 className="text-3xl mb-2">Account Info</h1>
-            <p>Username: {loggedInUser?.username}</p>
-            <p>Joined: {dateParts[1]} {dateParts[3]}</p>
+            <h1 className="text-3xl text-center pb-4 pt-2 border-0 border-b-2 border-gray-600 text-white w-full">
+                Account Information
+            </h1>
+            <div className="flex justify-between w-full p-4 md:w-3/6 border-0 border-b-2 border-gray-600">
+                <p>Username</p>
+                <p>{loggedInUser?.username}</p>
+            </div>
+            <div className="flex justify-between w-full p-4 md:w-3/6 border-0 border-b-2 border-gray-600">
+                <p>Joined</p>
+                <p>{dateParts[1]} {dateParts[3]}</p>
+            </div>
             <button
                 className='text-center mt-4 text-red-500 border border-red-500 rounded p-2.5 hover:bg-red-500 hover:text-white'
                 onClick={deleteUser}

@@ -42,7 +42,7 @@ export default function IngredientList({ loggedInUser }: any) {
             {filteredList && <div className="flex flex-wrap gap-2 justify-center overflow-y-auto scrollbar-hide p-4 h-44 lg:h-64 md:w-9/12">
                 {filteredList?.map((ing: string, idx: number) => {
                     return (
-                        <div className="flex text-xs border rounded p-1 h-8 text-white" key={idx}>
+                        <div className="flex text-xs border-2 border-yellow-800 rounded p-1 h-8 text-white" key={idx}>
                             <button
                                 className="capitalize"
                                 onClick={() => addIngredient(ing)}
