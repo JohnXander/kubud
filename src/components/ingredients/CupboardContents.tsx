@@ -14,17 +14,18 @@ export default function CupboardContents({ loggedInUser }: any) {
     }
 
     return (
-        <div className="flex justify-center flex-wrap gap-3 py-4 px-2 border-0 border-b-2 border-gray-600 lg:w-9/12">
-                {cupboardIngredients?.map(ing => {
-                    return (
-                        <div className="border rounded w-64 flex items-center p-2 justify-between" key={ing.id}>
-                            <p className="capitalize text-white">{ing.name}</p>
-                            <button className="text-red-500" onClick={() => deleteIngredient(ing.name)}>
-                                <FontAwesomeIcon icon={faX} />
-                            </button>
-                        </div>
-                    )
-                })}
-            </div>
+        <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto h-64 md:w-9/12">
+            {cupboardIngredients?.length === 0 && <p className="text-gray-400">There is nothing in your cupboard.</p>}
+            {cupboardIngredients?.map(ing => {
+                return (
+                    <div className="border rounded w-64 h-16 flex items-center p-2 justify-between" key={ing.id}>
+                        <p className="capitalize text-white">{ing.name}</p>
+                        <button className="text-red-500" onClick={() => deleteIngredient(ing.name)}>
+                            <FontAwesomeIcon icon={faX} />
+                        </button>
+                    </div>
+                )
+            })}
+        </div>
     )
 }

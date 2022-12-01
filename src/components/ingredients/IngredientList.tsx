@@ -39,7 +39,7 @@ export default function IngredientList({ loggedInUser }: any) {
                     required
                 />
             </div>
-            {filteredList && <div className="flex flex-wrap gap-2 justify-center overflow-y-auto h-64">
+            {filteredList && <div className="flex flex-wrap gap-2 justify-center overflow-y-auto p-4 h-32 lg:h-64 md:w-9/12">
                 {filteredList?.map((ing: string, idx: number) => {
                     return (
                         <div className="flex text-xs border rounded p-1 h-8 text-white" key={idx}>
