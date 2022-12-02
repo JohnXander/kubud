@@ -37,12 +37,20 @@ export default function Account() {
                 <p>Joined</p>
                 <p>{dateParts[1]} {dateParts[3]}</p>
             </div>
-            <button
-                className='text-center mt-4 text-red-500 border border-red-500 rounded p-2.5 hover:bg-red-500 hover:text-white'
-                onClick={deleteUser}
-                >
-                    Delete Account
-            </button>
+            <div className="flex justify-between w-full px-4 md:w-3/6 ">
+                <button
+                    className='text-center mt-4 text-red-500 border border-red-500 rounded p-2.5 hover:bg-red-500 hover:text-white'
+                    onClick={() => Router.push({ pathname: "/" })}
+                    >
+                        Delete Account
+                </button>
+                <button
+                    className='text-center mt-4 text-blue-500 border border-blue-500 rounded p-2.5 hover:bg-blue-500 hover:text-white'
+                    onClick={deleteUser}
+                    >
+                        Sign Out
+                </button>
+            </div>
         </div>
     )
 }

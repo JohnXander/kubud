@@ -15,7 +15,7 @@ export default function Meal() {
         <div className='h-screen w-screen bg-gray-800'>
             <div className='p-5 lg:pl-64'>
                 <button
-                    className='text-center text-yellow-400 border border-yellow-400 rounded p-1 hover:bg-yellow-400 hover:text-white flex items-center gap-x-2'
+                    className='text-center text-yellow-400 border border-yellow-400 rounded p-1 hover:bg-yellow-400 hover:text-white flex items-center gap-x-1'
                     onClick={() => router.back()}
                 >
                     <FontAwesomeIcon icon={faChevronLeft} />
