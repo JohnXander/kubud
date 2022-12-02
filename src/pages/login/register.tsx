@@ -27,38 +27,34 @@ export default function Register() {
 
     return (
         <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800'>
-            <div className="flex flex-col gap-y-2.5">
-                <h1 className="text-center text-3xl pb-4">Sign Up</h1>
-                <label>Username</label>
+            <h1 className="text-3xl mb-4">Create an account</h1>
+            <div className="flex flex-col justify-center gap-y-4">
                 <input
-                    className="bg-gray-800 border rounded p-2.5"
                     type="text"
+                    placeholder="Username"
+                    className="p-2 border rounded bg-gray-800"
+                    name="username"
                     onChange={handleChange}
-                    name='username'
-                    required
                 />
-                <label>Email</label>
                 <input
-                    className="bg-gray-800 border rounded p-2.5"
                     type="email"
+                    placeholder="Email"
+                    className="p-2 border rounded bg-gray-800"
+                    name="email"
                     onChange={handleChange}
-                    name='email'
-                    required
                 />
-                <label>Password</label>
                 <input
-                    className="bg-gray-800 border rounded p-2.5"
                     type="password"
+                    placeholder="Password"
+                    className="p-2 border rounded bg-gray-800"
+                    name="password"
                     onChange={handleChange}
-                    name='password'
-                    required
                 />
-                <span className="px-2"></span>
                 <button
-                    className='text-center text-white border rounded p-2.5 hover:bg-white hover:text-gray-800'
+                    className='text-center text-green-500 border border-green-500 rounded p-2.5 hover:bg-green-500 hover:text-white'
                     onClick={() => createNewUser()}
                     >
-                        Create New User
+                        Sign Up
                 </button>
             </div>
         </div>
