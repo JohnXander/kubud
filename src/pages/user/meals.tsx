@@ -40,7 +40,7 @@ export default function Meals() {
             <h1 className="text-3xl text-center pb-4 pt-2 border-0 border-b-2 border-gray-600 text-white w-full">
                 Exact Matches
             </h1>
-            <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
+            <div className="flex justify-center flex-wrap gap-3 p-4 border-0 border-b-2 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
                 {exactMatches?.length === 0 && <p className="text-gray-400">There are no matches.</p>}
                 {exactMatches?.map(meal => {
                     return (
@@ -58,7 +58,7 @@ export default function Meals() {
             <h1 className="text-3xl text-center pb-4 pt-2 border-0 border-b-2 border-gray-600 text-white w-full">
                 At Least One <br/> Matching Ingredient
             </h1>
-            <div className="flex justify-center flex-wrap gap-3 p-4 border-2 border-t-0 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
+            <div className="flex justify-center flex-wrap gap-3 p-4 border-0 border-b-2 border-gray-600 overflow-y-auto scrollbar-hide h-44 lg:h-64 md:w-9/12">
                 {atLeastOneMatchingIngredient?.length === 0 && <p className="text-gray-400">There are no matches.</p>}
                 {atLeastOneMatchingIngredient?.map(meal => {
                     return (
