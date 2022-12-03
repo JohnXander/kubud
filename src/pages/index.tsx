@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Router from "next/router";
 import { useState } from "react";
 
@@ -17,6 +18,9 @@ export default function IndexPage() {
   
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800'>
+      <Head>
+        <title>Kubud</title>
+      </Head>
       <h1 className="text-7xl">kubud</h1>
       <div className="flex flex-col justify-center gap-y-2 my-8">
         <input
