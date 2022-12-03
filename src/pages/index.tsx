@@ -1,6 +1,5 @@
 import Router from "next/router";
 import { useState } from "react";
-import { trpc } from "../utils/trpc";
 
 export default function IndexPage() {
   const handleNavigate = () => Router.push({ pathname: "/login/register" });
@@ -14,11 +13,7 @@ export default function IndexPage() {
     })
   }
 
-  const loginUser = () => {
-    // const { username } = user;
-    // Router.push({ pathname: "/user/cupboard", query: { username } });
-    console.log('Under construction')
-  }
+  const loginUser = () => console.log('Under construction...')
   
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center text-white bg-gray-800'>
@@ -29,6 +24,7 @@ export default function IndexPage() {
           placeholder="Username"
           className="p-2 border rounded bg-gray-800"
           name="username"
+          disabled
           onChange={handleChange}
         />
         <input
@@ -36,6 +32,7 @@ export default function IndexPage() {
           placeholder="Password"
           className="p-2 border rounded bg-gray-800"
           name="password"
+          disabled
           onChange={handleChange}
         />
         <button
